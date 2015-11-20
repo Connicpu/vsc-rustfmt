@@ -1,0 +1,30 @@
+{
+	"name": "vsc-rustfmt",
+	"description": "Allows you to run rustfmt from VS Code",
+	"version": "0.0.1",
+	"publisher": "Connor Hilarides",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.rustfmt"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [{
+			"command": "extension.rustfmt",
+			"title": "Format with rustfmt"
+		}]
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"devDependencies": {
+		"typescript": "^1.6.2",
+		"vscode": "0.10.x"
+	}
+}
