@@ -16,6 +16,10 @@
 		"onLanguage:rust"
 	],
 	
+	"extensionDependencies": [
+		"vscode.rust"
+	],
+	
 	"main": "./out/src/extension",
 	"contributes": {
 		"commands": [{
