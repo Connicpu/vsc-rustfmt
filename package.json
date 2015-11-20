@@ -1,28 +1,52 @@
 {
 	"name": "vsc-rustfmt",
 	"description": "Allows you to run rustfmt from VS Code",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"publisher": "Connorcpu",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
+	
 	"categories": [
-		"Other"
+		"Languages"
 	],
+	
 	"activationEvents": [
-		"onCommand:extension.rustfmt"
+		"onCommand:rustfmt.fmt",
+		"onLanguage:rust"
 	],
+	
 	"main": "./out/src/extension",
 	"contributes": {
 		"commands": [{
-			"command": "extension.rustfmt",
+			"command": "rustfmt.fmt",
 			"title": "Format with rustfmt"
 		}]
 	},
+	
+	"configuration": {
+		"type": "object",
+		"title": "Rustfmt configuration",
+		"properties": {
+			"rustfmt.bin": {
+				"type": "string",
+				"default": "",
+				"description": "The path to the rustfmt binary"
+			},
+			
+			"rustfmt.formatOnSave": {
+				"type": "boolean",
+				"default": true,
+				"description": "Whether to format Rust code on save"
+			}
+		}
+	},
+
 	"scripts": {
 		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
 		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
 	},
+	
 	"devDependencies": {
 		"typescript": "^1.6.2",
 		"vscode": "0.10.x"
