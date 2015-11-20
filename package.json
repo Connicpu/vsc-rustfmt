@@ -2,7 +2,7 @@
 	"name": "vsc-rustfmt",
 	"description": "Allows you to run rustfmt from VS Code",
 	"version": "0.0.1",
-	"publisher": "Connor Hilarides",
+	"publisher": "Connorcpu",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
