@@ -17,14 +17,14 @@ function formatDocument(document: string) {
 
 export function activate(context: vscode.ExtensionContext) {
 	config = vscode.workspace.getConfiguration('rustfmt');
-
+	
 	// Manual fmt command
 	context.subscriptions.push(vscode.commands.registerTextEditorCommand('rustfmt.fmt', editor => {
 		editor.document.save().then(fulfilled => {
 			formatDocument(editor.document.fileName);
 		});
 	}));
-
+	
 	// Automatic save handler
 	context.subscriptions.push(vscode.workspace.onDidSaveTextDocument(target => {
 		if(/\.rs$/.test(target.fileName) && (config.formatOnSave || true)) {
