@@ -4,7 +4,7 @@ import * as child_process from 'child_process';
 let config;
 
 function formatDocument(document: string) {
-	let bin = config.bin === '' ? 'rustfmt' : config.bin;
+	let bin = !config.bin ? 'rustfmt' : config.bin;
 	let result = child_process.spawnSync(bin, ['--write-mode', 'overwrite', document]);
 	if (result.error) {
 		vscode.window.showErrorMessage(result.error.toString());
